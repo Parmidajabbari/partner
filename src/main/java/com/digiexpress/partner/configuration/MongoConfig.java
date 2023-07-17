@@ -13,11 +13,6 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @Configuration
 @EnableMongoRepositories
 //TODO comment
-//TODO enum type query
-//TODO config property
-//TODO error message
-//TODO docker
-//TODO git
 //TODO test
 //TODO readme
 public class MongoConfig extends AbstractMongoClientConfiguration {

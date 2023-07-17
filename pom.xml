@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.digiexpress</groupId>
-    <artifactId>Partner</artifactId>
+    <artifactId>partner</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Partner</name>
-    <description>Partner</description>
+    <name>partner</name>
+    <description>partner</description>
     <properties>
         <java.version>17</java.version>
     </properties>

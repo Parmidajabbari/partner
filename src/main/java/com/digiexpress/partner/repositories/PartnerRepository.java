@@ -12,6 +12,8 @@ import java.util.Optional;
 public interface PartnerRepository extends MongoRepository<Partner, Long> {
     Boolean existsByDocument(String document);
 
+
+
     @Query("{ $and: [ { address : { $near : { $geometry : { type : ?0 , coordinates : [ ?1 , ?2 ] } } } }, { coverageArea : { $geoIntersects : { $geometry : { type : 'Point' , coordinates : [ ?0 , ?1 ] } } } } ] }")
     Optional<Partner> findByLocationNearAndCoverageAreaIntersecting(String type, Double X, Double Y);
 

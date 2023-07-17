@@ -11,7 +11,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Configuration
-
 @EnableMongoRepositories
 //TODO comment
 //TODO enum type query
@@ -22,14 +21,22 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 //TODO test
 //TODO readme
 public class MongoConfig extends AbstractMongoClientConfiguration {
+
+    private final MongoDBProperties mongoDBProperties;
+
+    public MongoConfig(MongoDBProperties mongoDBProperties) {
+        this.mongoDBProperties = mongoDBProperties;
+    }
+
+
     @Override
     protected String getDatabaseName() {
-        return "activity";
+        return mongoDBProperties.getDb();
     }
 
     @Override
     public MongoClient mongoClient() {
-        ConnectionString connectionString = new ConnectionString("mongodb://abank:a4905b34ddbb73573302f1b719440989@localhost:27017/" + getDatabaseName());
+        ConnectionString connectionString = new ConnectionString("mongodb://" + mongoDBProperties.getUsername() + ":" + mongoDBProperties.getPassword() + "@" + mongoDBProperties.getHost() + ":" + mongoDBProperties.getPort() + "/" + getDatabaseName());
         MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
                 .applyConnectionString(connectionString)
                 .build();

@@ -12,9 +12,6 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @Configuration
 @EnableMongoRepositories
-//TODO comment
-//TODO test
-//TODO readme
 public class MongoConfig extends AbstractMongoClientConfiguration {
 
     private final MongoDBProperties mongoDBProperties;

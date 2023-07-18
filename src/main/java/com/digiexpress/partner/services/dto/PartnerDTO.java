@@ -15,7 +15,6 @@ import javax.validation.constraints.NotEmpty;
 @RequiredArgsConstructor
 @NoArgsConstructor
 public class PartnerDTO {
-    //TODO validations and is id necessety
     private Long id;
     @NotEmpty
     @NonNull

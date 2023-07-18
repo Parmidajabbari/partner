@@ -13,7 +13,6 @@ import java.io.IOException;
 public class GeoJsonMultiPolygonSerializer extends JsonSerializer<GeoJsonMultiPolygon> {
     @Override
     public void serialize(GeoJsonMultiPolygon value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
-        //TODO check this
         gen.writeStartObject();
         gen.writeStringField("type", value.getType());
         gen.writeArrayFieldStart("coordinates");

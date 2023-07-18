@@ -113,30 +113,6 @@
             <version>6.10.4</version>
             <scope>test</scope>
         </dependency>
-
-
-<!--        <dependency>-->
-<!--            <groupId>io.rest-assured</groupId>-->
-<!--            <artifactId>rest-assured</artifactId>-->
-<!--            <version>5.1.1</version>-->
-<!--            <scope>test</scope>-->
-<!--            <exclusions>&lt;!&ndash; https://www.baeldung.com/maven-version-collision &ndash;&gt;-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.apache.groovy</groupId>-->
-<!--                    <artifactId>groovy</artifactId>-->
-<!--                </exclusion>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.apache.groovy</groupId>-->
-<!--                    <artifactId>groovy-xml</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>io.rest-assured</groupId>-->
-<!--            <artifactId>json-schema-validator</artifactId>-->
-<!--            <version>5.1.1</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>

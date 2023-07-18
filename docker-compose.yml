@@ -21,7 +21,7 @@ services:
     environment:
       - MONGO_INITDB_ROOT_PASSWORD=a4905b34ddbb73573302f1b719440989
       - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_DATABASE=partnerDB
+      - MONGO_INITDB_DATABASE=partnerdb
     ports:
       - '27017:27017'
     volumes:

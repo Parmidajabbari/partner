@@ -15,11 +15,14 @@ public class PartnerServiceImpl implements PartnerService {
     private final PartnerRepository partnerRepository;
     private final PartnerMapper partnerMapper;
 
+    // Constructor that initializes the PartnerRepository and PartnerMapper dependencies
     public PartnerServiceImpl(PartnerRepository partnerRepository, PartnerMapper partnerMapper) {
         this.partnerRepository = partnerRepository;
         this.partnerMapper = partnerMapper;
     }
 
+    // Method that saves a new partner to the database
+    // Throws a BadRequestException if a partner with the same document already exists
     @Override
     public PartnerDTO savePartner(PartnerDTO partnerDTO) {
         if (partnerRepository.existsByDocument(partnerDTO.getDocument())) {
@@ -29,12 +32,16 @@ public class PartnerServiceImpl implements PartnerService {
         return partnerMapper.toDTO(partnerRepository.save(partner));
     }
 
+    // Method that retrieves a partner by ID from the database
+    // Throws an EntityNotFoundException if the partner is not found
     @Override
     public PartnerDTO getPartnerById(Long id) {
-       Partner partner = partnerRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Partner not found."));
-       return partnerMapper.toDTO(partner);
+        Partner partner = partnerRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Partner not found."));
+        return partnerMapper.toDTO(partner);
     }
 
+    // Method that searches for a partner by location in the database
+    // Throws an EntityNotFoundException if no partner is found in the specified location
     @Override
     public PartnerDTO searchPartnerByLocation(Double lng, Double lat) {
         GeoJsonPoint location = new GeoJsonPoint(new Point(lng, lat));

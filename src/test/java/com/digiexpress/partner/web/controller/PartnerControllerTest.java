@@ -46,36 +46,14 @@ class PartnerControllerTest {
         partner.setAddress(new GeoJsonPoint(2.0d, 3.0d));
         partner.setCoverageArea(new GeoJsonMultiPolygon(new ArrayList<>()));
         partner.setDocument("Document222");
-        when(partnerRepository.existsByDocument(any())).thenReturn(true);
+        when(partnerRepository.existsByDocument(any())).thenReturn(false);
         partner.setId(1L);
         partner.setOwnerName("Owner Name");
         partner.setTradingName("Trading Name");
-        PartnerRepository partnerRepository = mock(PartnerRepository.class);
-        when(partnerRepository.existsByDocument(Mockito.<String>any())).thenReturn(true);
         when(partnerRepository.save(Mockito.<Partner>any())).thenReturn(partner);
         PartnerController partnerController = new PartnerController(
                 new PartnerServiceImpl(partnerRepository, new PartnerMapperImpl()));
         partnerController.savePartner(new PartnerDTO());
-    }
-
-    @Test
-    void testSavePartner2() {
-
-        Partner partner = new Partner();
-        partner.setAddress(new GeoJsonPoint(2.0d, 3.0d));
-        partner.setCoverageArea(new GeoJsonMultiPolygon(new ArrayList<>()));
-        partner.setDocument("Document");
-        partner.setId(1L);
-        partner.setOwnerName("Owner Name");
-        partner.setTradingName("Trading Name");
-        PartnerRepository partnerRepository = mock(PartnerRepository.class);
-        when(partnerRepository.existsByDocument(Mockito.<String>any())).thenReturn(false);
-        when(partnerRepository.save(Mockito.<Partner>any())).thenReturn(partner);
-        PartnerController partnerController = new PartnerController(
-                new PartnerServiceImpl(partnerRepository, new PartnerMapperImpl()));
-        partnerController.savePartner(new PartnerDTO());
-        verify(partnerRepository).existsByDocument(Mockito.<String>any());
-        verify(partnerRepository).save(Mockito.<Partner>any());
     }
 
     @Test

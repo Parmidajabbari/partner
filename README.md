@@ -45,10 +45,8 @@ The tests should run and show the results in the console.
 
 The service provides the following endpoints:
 
-- `GET /partners`: Returns a list of all partners.
+- `GET /partners/search`: Return the partner that is nearest with the given lat and lng.
 - `GET /partners/{id}`: Returns the partner with the specified ID.
 - `POST /partners`: Creates a new partner.
-- `PUT /partners/{id}`: Updates the partner with the specified ID.
-- `DELETE /partners/{id}`: Deletes the partner with the specified ID.
 
 The request and response formats for each endpoint are documented in the Swagger UI. To access the Swagger UI, go to [http://localhost:8080/swagger-ui.html ↗](http://localhost:8080/swagger-ui.html) when running the service locally, or http://<server-ip>:8080/swagger-ui.html when running the deployed service.
